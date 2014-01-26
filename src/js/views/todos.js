@@ -12,7 +12,7 @@ module.exports = Backbone.View.extend({
 
     tagName:  'li',
 
-    template: JST['todos'],
+    template: _.template(JST['todos']()),
 
     // The DOM events specific to an item.
     events: {

@@ -1,13 +1,14 @@
 "use strict";
 
-var $ = require('jquery')(window);
+var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Todo = require('../models/todo');
+require('../../../bower_components/backbone.localStorage/backbone.localStorage');
 
 Backbone.$ = $;
 
-module.exports = Backbone.Collection.extend({
+var TodoCollection = Backbone.Collection.extend({
 
     // Reference to this collection's model.
     model: Todo,
@@ -41,3 +42,5 @@ module.exports = Backbone.Collection.extend({
         return todo.get('order');
     }
 });
+
+module.exports = new TodoCollection();

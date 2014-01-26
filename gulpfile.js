@@ -2,7 +2,7 @@
 
 var gulp       = require('gulp');
 var util       = require('gulp-util');
-var imagemin   = require('gulp-imagemin');
+//var imagemin   = require('gulp-imagemin');
 var browserify = require('gulp-browserify');
 var less       = require('gulp-less');
 var jshint     = require('gulp-jshint');
@@ -40,13 +40,16 @@ gulp.task('images', function() {
     var destination = (util.env.production ? dir.prod : dir.dev) + 'img/';
 
     gulp.src(dir.src + 'img/**/*')
-        .pipe(imagemin())
+//        .pipe(imagemin())
         .pipe(gulp.dest(destination));
 });
 
 gulp.task('templates', function() {
     gulp.src(dir.src + 'js/templates/**/*.html')
-        .pipe(dotify())
+        .pipe(dotify({
+            separator: '/',
+            root: 'templates'
+        }))
         .pipe(concat('templates.js'))
         .pipe(header('var JST = {};'))
         .pipe(footer('module.exports = JST;'))
@@ -58,7 +61,7 @@ gulp.task('scripts', function() {
 
     gulp.src(dir.src + 'js/main.js')
         .pipe(browserify())
-        .pipe(concat('dest.js'))
+        .pipe(concat('main.js'))
         .pipe(util.env.production ? uglify() : util.noop())
         .pipe(gulp.dest(destination));
 });
@@ -69,6 +72,12 @@ gulp.task('resources', function () {
     gulp.src(dir.src + 'index.html')
         .pipe(util.env.production ? minifyHTML() : util.noop())
         .pipe(gulp.dest(destination));
+
+    gulp.src([
+            dir.src + 'assets/**/*',
+            'bower_components/html5shiv/dist/html5shiv.js'
+        ])
+        .pipe(gulp.dest(destination + 'assets'));
 });
 
 // Rerun the task when a file changes
@@ -82,4 +91,4 @@ gulp.task('watch', function () {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['css', 'templates', 'scripts', 'watch']);
+gulp.task('default', ['css', 'images', 'templates', 'scripts', 'watch']);

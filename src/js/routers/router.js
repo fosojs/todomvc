@@ -1,6 +1,6 @@
 "use strict";
 
-var $ = require('jquery')(window);
+var $ = require('jquery');
 var Backbone = require('backbone');
 var Todos = require('../collections/todos');
 var Common = require('../common');

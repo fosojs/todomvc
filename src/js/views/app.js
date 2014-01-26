@@ -1,6 +1,6 @@
 "use strict";
 
-var $ = require('jquery')(window);
+var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Todos = require('../collections/todos');
@@ -17,7 +17,7 @@ module.exports = Backbone.View.extend({
     el: '#todoapp',
 
     // Compile our stats template
-    template: JST['stats'],
+    template: _.template(JST['stats']()),
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {

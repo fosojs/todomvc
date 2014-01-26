@@ -1,6 +1,6 @@
 "use strict";
 
-var $ = require('jquery')(window);
+var $ = require('jquery');
 var Backbone = require('backbone');
 var AppView = require('./views/app');
 var Workspace = require('./routers/router');
