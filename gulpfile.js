@@ -66,7 +66,7 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(destination));
 });
 
-gulp.task('resources', function () {
+gulp.task('resources', function() {
     var destination = util.env.production ? dir.prod : dir.dev;
 
     gulp.src(dir.src + 'index.html')
@@ -81,14 +81,15 @@ gulp.task('resources', function () {
 });
 
 // Rerun the task when a file changes
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     if (util.env.production) { return; }
 
     gulp.watch(dir.src + 'css/**/*.less', ['css']);
-    gulp.watch(dir.src + 'img/**', ['images']);
+    gulp.watch(dir.src + 'img/**/*', ['images']);
     gulp.watch(dir.src + 'js/templates/**/*.html', ['templates']);
     gulp.watch(dir.src + 'js/**/*.js', ['scripts']);
+    gulp.watch(dir.src + 'index.html', ['resources']);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['css', 'images', 'templates', 'scripts', 'watch']);
+gulp.task('default', ['css', 'images', 'templates', 'scripts', 'resources', 'watch']);
