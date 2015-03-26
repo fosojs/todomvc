@@ -45,6 +45,8 @@ gulp.task('images', function() {
 });
 
 gulp.task('templates', function() {
+    var destination = dir.src + 'js/';
+
     gulp.src(dir.src + 'js/templates/**/*.html')
         .pipe(dotify({
             separator: '/',
@@ -53,7 +55,7 @@ gulp.task('templates', function() {
         .pipe(concat('templates.js'))
         .pipe(header('var JST = {};'))
         .pipe(footer('module.exports = JST;'))
-        .pipe(gulp.dest(dir.src + 'js/'));
+        .pipe(gulp.dest(destination));
 });
 
 gulp.task('scripts', function() {
@@ -67,7 +69,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('resources', function() {
-    var destination = util.env.production ? dir.prod : dir.dev;
+    var destination = (util.env.production ? dir.prod : dir.dev) + 'assets/';
 
     gulp.src(dir.src + 'index.html')
         .pipe(util.env.production ? minifyHTML() : util.noop())
@@ -77,7 +79,7 @@ gulp.task('resources', function() {
             dir.src + 'assets/**/*',
             'bower_components/html5shiv/dist/html5shiv.js'
         ])
-        .pipe(gulp.dest(destination + 'assets'));
+        .pipe(gulp.dest(destination));
 });
 
 // Rerun the task when a file changes
