@@ -1,18 +1,17 @@
-"use strict";
+'use strict';
 
 var gulp       = require('gulp');
 var util       = require('gulp-util');
 //var imagemin   = require('gulp-imagemin');
-var browserify = require('gulp-browserify');
 var less       = require('gulp-less');
 var jshint     = require('gulp-jshint');
-var uglify     = require('gulp-uglify');
 var dotify     = require('gulp-dotify');
 var header     = require('gulp-header');
 var footer     = require('gulp-footer');
 var minifyCSS  = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
 var concat     = require('gulp-concat');
+var fosify = require('fosify');
 
 var dir = {
     dev:  'dev/',
@@ -61,11 +60,12 @@ gulp.task('templates', function() {
 gulp.task('scripts', function() {
     var destination = (util.env.production ? dir.prod : dir.dev) + 'js/';
 
-    gulp.src(dir.src + 'js/main.js')
-        .pipe(browserify())
-        .pipe(concat('main.js'))
-        .pipe(util.env.production ? uglify() : util.noop())
-        .pipe(gulp.dest(destination));
+    fosify({
+      source: dir.src + 'js',
+      dest: destination,
+      minify: util.env.production,
+      watch: false
+    });
 });
 
 gulp.task('resources', function() {
