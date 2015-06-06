@@ -4,6 +4,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var AppView = require('./views/app');
 var Workspace = require('./routers/router');
+window.foso = require('foso-trojan');
 
 Backbone.$ = $;
 

@@ -47,7 +47,7 @@ gulp.task('templates', function() {
 });
 
 gulp.task('scripts', function() {
-    var destination = (util.env.production ? dir.prod : dir.dev) + 'js/';
+    var destination = (util.env.production ? dir.prod : dir.dev);
 
     fosify({
       src: dir.src,
