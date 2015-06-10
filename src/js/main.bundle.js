@@ -4,8 +4,15 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var AppView = require('./views/app');
 var Workspace = require('./routers/router');
-window.foso = require('foso-trojan');
-window.foso();
+window.kibe = require('kibe');
+window.kibe({
+  abo: function(mode) {
+    if (mode === 'abo') {
+      return location.protocol === 'http:' ?
+        'http://localhost:1769/index.js' : 'https://localhost:1770/index.js'
+    }
+  }
+});
 
 Backbone.$ = $;
 
