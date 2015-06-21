@@ -11,7 +11,7 @@ window.kibe({
       return location.protocol === 'http:' ?
         'http://localhost:1769/index.js' : 'https://localhost:1770/index.js'
     }
-    if (mode !== 'noabo') {
+    if (mode === 'aboprod') {
       return 'http://localhost:9595/dev/todomvc-ab/index.js';
     }
   }

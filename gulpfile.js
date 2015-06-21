@@ -7,11 +7,11 @@ var jshint = require('gulp-jshint');
 var dotify = require('gulp-dotify');
 var header = require('gulp-header');
 var footer = require('gulp-footer');
-var minifyHTML = require('gulp-minify-html');
 var concat = require('gulp-concat');
 var fosify = require('fosify');
 var js = require('fosify-js');
 var less = require('fosify-less');
+var html = require('fosify-html');
 
 var dir = {
   dev: 'dev/',
@@ -59,15 +59,12 @@ gulp.task('scripts', function() {
   })
     .plugin(js)
     .plugin(less)
+    .plugin(html)
     .bundle();
 });
 
 gulp.task('resources', function() {
   var destination = (util.env.production ? dir.prod : dir.dev) + 'assets/';
-
-  gulp.src(dir.src + 'index.html')
-    .pipe(util.env.production ? minifyHTML() : util.noop())
-    .pipe(gulp.dest(destination));
 
   gulp.src([
     dir.src + 'assets/**/*',
@@ -81,9 +78,8 @@ gulp.task('watch', function() {
   if (util.env.production) { return; }
 
   gulp.watch(dir.src + 'img/**/*', ['images']);
-  gulp.watch(dir.src + 'js/templates/**/*.html', ['templates']);
-  gulp.watch(dir.src + 'index.html', ['resources']);
+  gulp.watch(dir.src + 'js/templates/**/*.html', ['templates']);;
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['images', 'templates', 'scripts', 'resources', 'watch']);
+gulp.task('default', ['images', 'templates', 'scripts', 'resources']);
