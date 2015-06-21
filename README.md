@@ -1,16 +1,16 @@
 ## Description
 
-This project is being used to demonstrate how to integrate [gulp][] into a project. [TodoMVC][] is the original project that this is based on.  It integrates Backbone.js + Browserify to create a simple todo list within localstorage. The project also is using [Bower][] for package management of some front-end resouces.
+This project is being used to demonstrate how to use [fosify][] with [gulp][] to bundle resources. [TodoMVC][] is the original project that this is based on.  It integrates Backbone.js + Browserify to create a simple todo list within localstorage. The project also is using [Bower][] for package management of some front-end resouces.
 
 This does require that nodeJS, gulp, and bower be installed.
 
 ## Quick start
 
 ```sh
-$ git clone git://github.com/jthoms1/todomvc-gulp.git
+$ git clone git://github.com/zkochan/todomvc-fosify.git
 # install dependent plugins
-$ cd todomvc-gulp
-$ npm install     # Install gulp dev dependencies into /node_modules
+$ cd todomvc-fosify
+$ npm install     # Install gulp/fosify dev dependencies into /node_modules
 $ bower install   # Install front-end resources from bower into /bower_components
 ```
 
@@ -23,7 +23,7 @@ $ bower install   # Install front-end resources from bower into /bower_component
 |   |-- css - Source less files 
 |   |-- img - Source images
 |   |-- js - Source js files. Each file is an amd module
-|   `-- index.html - Base index page
+|   `-- index.bundle.html - Base index page
 `-- gulpfile.js - Contains the build process for this setup
 `-- bower.json - Defines dependencies for Bower
 `-- package.json - Describes current project and its dependencies
@@ -38,16 +38,13 @@ After you have completed your changes and are ready to push to a production envi
 
 ## Demonstrates
 
+* Fosify
 * Lint JS files with jshint
-* Compile / Compress LESS files into CSS
-* Browserify
 * Copy source files into a publish directory
 * Run tasks when files being watched are saved
 
-## Release History
-
-* 2013-01-26    v0.1.0   Initial project release used to demonstrate Gulp usage
 
 [todoMVC]: http://addyosmani.github.com/todomvc
 [gulp]: https://github.com/gulpjs/gulp
 [bower]: https://github.com/twitter/bower
+[fosify]: https://github.com/zkochan/fosify
