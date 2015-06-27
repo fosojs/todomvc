@@ -1,9 +1,13 @@
 {
-  "name": "todomvc-fosify",
-  "description": "This is just an example project to show fosify with mvc javascript.",
+  "name": "todomvc-foso",
+  "description": "This is just an example project to show foso with mvc javascript.",
   "version": "0.0.1",
-  "homepage": "http://github.com/zkochan/todomvc-fosify",
-  "author": "Zoltan Kochan",
+  "homepage": "http://github.com/fosojs/todomvc-fosify",
+  "author": {
+    "name": "Zoltan Kochan",
+    "email": "zoltan.kochan@gmail.com",
+    "url": "http://kochan.io"
+  },
   "dependencies": {
     "backbone": "~1.0.0",
     "jquery": "~2.1",
@@ -11,10 +15,10 @@
     "underscore": "~1.5.1"
   },
   "devDependencies": {
-    "fosify": "^0.4.0",
-    "fosify-html": "0.0.1",
-    "fosify-js": "^0.1.1",
-    "fosify-less": "0.0.2",
+    "fosify-html": "^0.1.1",
+    "fosify-js": "^0.1.2",
+    "fosify-less": "^0.1.1",
+    "foso": "^0.9.1",
     "gulp": "~3.5.0",
     "gulp-concat": "~2.1.7",
     "gulp-dotify": "~0.1.1",

@@ -8,7 +8,7 @@ var dotify = require('gulp-dotify');
 var header = require('gulp-header');
 var footer = require('gulp-footer');
 var concat = require('gulp-concat');
-var fosify = require('fosify');
+var foso = require('foso');
 var js = require('fosify-js');
 var less = require('fosify-less');
 var html = require('fosify-html');
@@ -51,16 +51,17 @@ gulp.task('templates', function() {
 gulp.task('scripts', function() {
   var destination = (util.env.production ? dir.prod : dir.dev);
 
-  fosify({
-    src: dir.src,
-    dest: destination,
-    minify: util.env.production,
-    watch: !util.env.production
-  })
-    .plugin(js)
-    .plugin(less)
-    .plugin(html)
-    .bundle();
+  foso
+    .please({
+      src: dir.src,
+      dest: destination,
+      minify: util.env.production,
+      watch: !util.env.production
+    })
+    .fosify(js)
+    .fosify(less)
+    .fosify(html)
+    .now();
 });
 
 gulp.task('resources', function() {

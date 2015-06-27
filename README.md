@@ -1,16 +1,16 @@
 ## Description
 
-This project is being used to demonstrate how to use [fosify][] with [gulp][] to bundle resources. [TodoMVC][] is the original project that this is based on.  It integrates Backbone.js + Browserify to create a simple todo list within localstorage. The project also is using [Bower][] for package management of some front-end resouces.
+This project is being used to demonstrate how to use [foso][] with [gulp][] to bundle resources. [TodoMVC][] is the original project that this is based on.  It integrates Backbone.js + Browserify to create a simple todo list within localstorage. The project also is using [Bower][] for package management of some front-end resouces.
 
 This does require that nodeJS, gulp, and bower be installed.
 
 ## Quick start
 
 ```sh
-$ git clone git://github.com/zkochan/todomvc-fosify.git
+$ git clone git://github.com/fosojs/todomvc-foso.git
 # install dependent plugins
-$ cd todomvc-fosify
-$ npm install     # Install gulp/fosify dev dependencies into /node_modules
+$ cd todomvc-foso
+$ npm install     # Install gulp/foso dev dependencies into /node_modules
 $ bower install   # Install front-end resources from bower into /bower_components
 ```
 
@@ -20,7 +20,7 @@ $ bower install   # Install front-end resources from bower into /bower_component
 |-- dev - Directory containing development environment of site for testing.
 |-- publish - Contains production environment. Files are compressed.
 |-- src
-|   |-- css - Source less files 
+|   |-- css - Source less files
 |   |-- img - Source images
 |   |-- js - Source js files. Each file is an amd module
 |   `-- index.bundle.html - Base index page
@@ -47,4 +47,4 @@ After you have completed your changes and are ready to push to a production envi
 [todoMVC]: http://addyosmani.github.com/todomvc
 [gulp]: https://github.com/gulpjs/gulp
 [bower]: https://github.com/twitter/bower
-[fosify]: https://github.com/zkochan/fosify
+[foso]: https://github.com/fosojs/foso
