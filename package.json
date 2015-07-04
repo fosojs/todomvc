@@ -18,7 +18,7 @@
     "fosify-html": "^0.1.1",
     "fosify-js": "^0.1.2",
     "fosify-less": "^0.1.1",
-    "foso": "^0.9.1",
+    "foso": "^0.9.3",
     "gulp": "~3.5.0",
     "gulp-concat": "~2.1.7",
     "gulp-dotify": "~0.1.1",

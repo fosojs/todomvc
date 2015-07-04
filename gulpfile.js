@@ -56,7 +56,10 @@ gulp.task('scripts', function() {
       src: dir.src,
       dest: destination,
       minify: util.env.production,
-      watch: !util.env.production
+      watch: !util.env.production,
+      serve: {
+        port: 5000
+      }
     })
     .fosify(js)
     .fosify(less)
@@ -79,7 +82,7 @@ gulp.task('watch', function() {
   if (util.env.production) { return; }
 
   gulp.watch(dir.src + 'img/**/*', ['images']);
-  gulp.watch(dir.src + 'js/templates/**/*.html', ['templates']);;
+  gulp.watch(dir.src + 'js/templates/**/*.html', ['templates']);
 });
 
 // The default task (called when you run `gulp` from cli)
