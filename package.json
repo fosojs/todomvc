@@ -8,12 +8,6 @@
     "email": "zoltan.kochan@gmail.com",
     "url": "http://kochan.io"
   },
-  "dependencies": {
-    "backbone": "~1.0.0",
-    "jquery": "~2.1",
-    "kibe": "^0.2.0",
-    "underscore": "~1.5.1"
-  },
   "devDependencies": {
     "fosify-html": "^1.0.0",
     "foso": "^1.0.3",

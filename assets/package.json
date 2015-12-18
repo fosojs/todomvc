@@ -3,6 +3,8 @@
   "description": "This is just an example project to show foso with mvc javascript.",
   "version": "0.0.0",
   "homepage": "http://github.com/fosojs/todomvc",
+  "main": "./dist/js/main.js",
+  "style": "./dist/css/base.css",
   "author": {
     "name": "Zoltan Kochan",
     "email": "zoltan.kochan@gmail.com",

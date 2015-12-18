@@ -11,7 +11,10 @@ gulp.task('html', ['resources'], function(cb) {
   let foso = new Foso();
   foso
     .register([html], {
-      src: './src',
+      src: './',
+      ignore: [
+        './**/node_modules/**',
+      ],
       serve: {
         port: 5000,
       },
