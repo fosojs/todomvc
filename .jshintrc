@@ -2,6 +2,7 @@
     "browser": true,
     "curly": true,
     "eqeqeq": true,
+    "esnext": true,
     "forin" : true,
     "immed": true,
     "indent": 4,
@@ -18,6 +19,7 @@
     "trailing": true,
     "globals": {
         "require": true,
-        "module": true
+        "module": true,
+        "__dirname": true
     }
 }

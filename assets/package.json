@@ -1,7 +1,7 @@
 {
-  "name": "todomvc-foso",
+  "name": "foso-todomvc-assets",
   "description": "This is just an example project to show foso with mvc javascript.",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "homepage": "http://github.com/fosojs/todomvc",
   "author": {
     "name": "Zoltan Kochan",
@@ -11,12 +11,17 @@
   "dependencies": {
     "backbone": "~1.0.0",
     "jquery": "~2.1",
-    "kibe": "^0.2.0",
     "underscore": "~1.5.1"
   },
   "devDependencies": {
-    "fosify-html": "^1.0.0",
+    "fosify-js": "^1.0.3",
+    "fosify-less": "^1.0.0",
     "foso": "^1.0.3",
-    "gulp": "^3.9.0"
+    "foso-cdn": "0.0.3",
+    "gulp": "^3.9.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-dotify": "~0.1.1",
+    "gulp-footer": "~1.0.3",
+    "gulp-header": "~1.0.2"
   }
 }

@@ -39,7 +39,6 @@ After you have completed your changes and are ready to push to a production envi
 ## Demonstrates
 
 * Fosify
-* Lint JS files with jshint
 * Copy source files into a publish directory
 * Run tasks when files being watched are saved
 

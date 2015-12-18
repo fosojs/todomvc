@@ -1,89 +1,25 @@
 'use strict';
 
-var gulp = require('gulp');
-var util = require('gulp-util');
-//var imagemin   = require('gulp-imagemin');
-var jshint = require('gulp-jshint');
-var dotify = require('gulp-dotify');
-var header = require('gulp-header');
-var footer = require('gulp-footer');
-var concat = require('gulp-concat');
-var foso = require('foso');
-var js = require('fosify-js');
-var less = require('fosify-less');
-var html = require('fosify-html');
+const gulp = require('gulp');
+const Foso = require('foso');
+const html = require('fosify-html');
 
-var dir = {
-  dev: 'dev/',
-  prod: 'publish/',
-  src: 'src/'
-};
+gulp.task('templates', require('./assets/tasks/templates'));
+gulp.task('resources', ['templates'], require('./assets/tasks/resources'));
 
-// Lint Task
-gulp.task('lint', function() {
-  gulp.src(dir.src + 'js/**/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
-
-gulp.task('images', function() {
-  var destination = (util.env.production ? dir.prod : dir.dev) + 'img/';
-
-  gulp.src(dir.src + 'img/**/*')
-//        .pipe(imagemin())
-    .pipe(gulp.dest(destination));
-});
-
-gulp.task('templates', function() {
-  var destination = dir.src + 'js/';
-
-  gulp.src(dir.src + 'js/templates/**/*.html')
-    .pipe(dotify({
-      separator: '/',
-      root: 'templates'
-    }))
-    .pipe(concat('templates.js'))
-    .pipe(header('var JST = {};'))
-    .pipe(footer('module.exports = JST;'))
-    .pipe(gulp.dest(destination));
-});
-
-gulp.task('scripts', function() {
-  var destination = (util.env.production ? dir.prod : dir.dev);
-
+gulp.task('html', ['resources'], function(cb) {
+  let foso = new Foso();
   foso
-    .please({
-      src: dir.src,
-      dest: destination,
-      minify: util.env.production,
-      watch: !util.env.production,
+    .register([html], {
+      src: './src',
       serve: {
-        port: 5000
-      }
+        port: 5000,
+      },
     })
-    .fosify(js)
-    .fosify(less)
-    .fosify(html)
-    .now();
-});
-
-gulp.task('resources', function() {
-  var destination = (util.env.production ? dir.prod : dir.dev) + 'assets/';
-
-  gulp.src([
-    dir.src + 'assets/**/*',
-    'bower_components/html5shiv/dist/html5shiv.js'
-  ])
-    .pipe(gulp.dest(destination));
-});
-
-// Rerun the task when a file changes
-gulp.task('watch', function() {
-  if (util.env.production) { return; }
-
-  gulp.watch(dir.src + 'img/**/*', ['images']);
-  gulp.watch(dir.src + 'js/templates/**/*.html', ['templates']);
+    .then(() => foso.bundle())
+    .then(cb)
+    .catch(cb);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['images', 'templates', 'scripts', 'resources']);
+gulp.task('default', ['html']);
