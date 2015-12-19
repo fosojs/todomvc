@@ -20,7 +20,7 @@
     "underscore": "^1.5.1"
   },
   "devDependencies": {
-    "fosify-js": "^1.0.3",
+    "fosify-js": "^1.0.4",
     "fosify-less": "^1.0.0",
     "foso": "^1.0.4",
     "foso-cdn": "0.0.3",

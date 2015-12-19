@@ -14,10 +14,6 @@ gulp.task('build', function(cb) {
     .register([js, less], {
       preset: 'build',
       basePath: basePath,
-      ignore: [
-        './**/node_modules/**',
-        './dist/**',
-      ],
     })
     .then(() => foso.bundle())
     .then(cb)
