@@ -7,24 +7,23 @@ const less = require('fosify-less');
 const Server = require('foso-cdn').Server;
 const path = require('path');
 
-gulp.task('resources', ['templates'], function(cb) {
-  var opts = {
-    dest: path.resolve(__dirname, '../dist'),
-    src: path.resolve(__dirname, '../'),
-    ignore: [
-      './**/node_modules/**',
-      './dist/**',
-    ],
-    serve: false,
-  };
+var basePath = path.resolve(__dirname, '../');
 
-  var foso = new Foso();
+gulp.task('resources', ['templates'], function(cb) {
+  let foso = new Foso();
   foso
-    .register([js, less], opts)
+    .register([js, less], {
+      preset: 'develop',
+      basePath: basePath,
+      ignore: [
+        './**/node_modules/**',
+        './dist/**',
+      ],
+    })
     .then(() => foso.bundle())
     .then(function() {
-      var server = new Server({
-        src: path.resolve(__dirname, '../'),
+      let server = new Server({
+        src: basePath,
       });
       return server.start();
     })

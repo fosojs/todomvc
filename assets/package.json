@@ -19,7 +19,7 @@
   "devDependencies": {
     "fosify-js": "^1.0.3",
     "fosify-less": "^1.0.0",
-    "foso": "^1.0.3",
+    "foso": "^1.0.4",
     "foso-cdn": "0.0.3",
     "gulp": "^3.9.0",
     "gulp-concat": "~2.1.7",
