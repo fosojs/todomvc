@@ -9,7 +9,7 @@ const path = require('path');
 
 const destination = path.resolve(__dirname, '../dist');
 
-module.exports = function() {
+gulp.task('templates', function() {
   gulp.src('./js/templates/**/*.html')
     .pipe(dotify({
       separator: '/',
@@ -19,4 +19,4 @@ module.exports = function() {
     .pipe(header('var JST = {};'))
     .pipe(footer('module.exports = JST;'))
     .pipe(gulp.dest(destination));
-};
+});

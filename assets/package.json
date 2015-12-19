@@ -25,6 +25,7 @@
     "gulp-concat": "~2.1.7",
     "gulp-dotify": "~0.1.1",
     "gulp-footer": "~1.0.3",
-    "gulp-header": "~1.0.2"
+    "gulp-header": "~1.0.2",
+    "require-dir": "^0.3.0"
   }
 }

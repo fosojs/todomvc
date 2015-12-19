@@ -1,12 +1,13 @@
 'use strict';
 
+const gulp = require('gulp');
 const Foso = require('foso');
 const js = require('fosify-js');
 const less = require('fosify-less');
 const Server = require('foso-cdn').Server;
 const path = require('path');
 
-module.exports = function(cb) {
+gulp.task('resources', ['templates'], function(cb) {
   var opts = {
     dest: path.resolve(__dirname, '../dist'),
     src: path.resolve(__dirname, '../'),
@@ -29,4 +30,4 @@ module.exports = function(cb) {
     })
     .then(cb)
     .catch(cb);
-};
+});

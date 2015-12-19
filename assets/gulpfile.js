@@ -1,9 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const requireDir = require('require-dir');
+requireDir('./tasks');
 
-gulp.task('templates', require('./tasks/templates'));
-gulp.task('resources', ['templates'], require('./tasks/resources'));
-
-// The default task (called when you run `gulp` from cli)
 gulp.task('default', ['templates', 'resources']);
