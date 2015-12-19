@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const hub = require('gulp-hub');
 const Foso = require('foso');
 const html = require('fosify-html');
 
@@ -26,3 +27,5 @@ gulp.task('html', ['resources'], function(cb) {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['html']);
+
+hub(['gulpfile.js', 'assets/gulpfile.js']);
