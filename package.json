@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "fosify-html": "^1.0.0",
-    "foso": "^1.0.3",
+    "foso": "^1.0.4",
     "gulp": "^3.9.0",
     "gulp-hub": "^0.7.1"
   }

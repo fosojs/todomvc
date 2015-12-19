@@ -5,14 +5,11 @@ const hub = require('gulp-hub');
 const Foso = require('foso');
 const html = require('fosify-html');
 
-gulp.task('html', function(cb) {
+gulp.task('develop', function(cb) {
   let foso = new Foso();
   foso
     .register([html], {
-      src: './',
-      ignore: [
-        './**/node_modules/**',
-      ],
+      basePath: __dirname,
       serve: {
         port: 5000,
       },
@@ -26,7 +23,6 @@ gulp.task('html', function(cb) {
     .catch(cb);
 });
 
-// The default task (called when you run `gulp` from cli)
-gulp.task('default', ['html']);
+gulp.task('default', ['develop']);
 
 hub(['assets/gulpfile.js', 'gulpfile.js']);

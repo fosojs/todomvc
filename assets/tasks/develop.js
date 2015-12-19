@@ -7,9 +7,9 @@ const less = require('fosify-less');
 const Server = require('foso-cdn').Server;
 const path = require('path');
 
-var basePath = path.resolve(__dirname, '../');
+const basePath = path.resolve(__dirname, '../');
 
-gulp.task('resources', ['templates'], function(cb) {
+gulp.task('develop', function(cb) {
   let foso = new Foso();
   foso
     .register([js, less], {
