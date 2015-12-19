@@ -10,6 +10,10 @@ module.exports = function(cb) {
   var opts = {
     dest: path.resolve(__dirname, '../dist'),
     src: path.resolve(__dirname, '../'),
+    ignore: [
+      './**/node_modules/**',
+      './dist/**',
+    ],
     serve: false,
   };
 
