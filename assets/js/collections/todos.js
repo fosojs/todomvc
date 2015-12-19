@@ -4,7 +4,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Todo = require('../models/todo');
-require('../../../bower_components/backbone.localStorage/backbone.localStorage');
+Backbone.LocalStorage = require('backbone.localstorage');
 
 Backbone.$ = $;
 

@@ -5,10 +5,7 @@ const hub = require('gulp-hub');
 const Foso = require('foso');
 const html = require('fosify-html');
 
-gulp.task('templates', require('./assets/tasks/templates'));
-gulp.task('resources', ['templates'], require('./assets/tasks/resources'));
-
-gulp.task('html', ['resources'], function(cb) {
+gulp.task('html', function(cb) {
   let foso = new Foso();
   foso
     .register([html], {
@@ -19,6 +16,10 @@ gulp.task('html', ['resources'], function(cb) {
       serve: {
         port: 5000,
       },
+      watch: true,
+      livereload: {
+        port: 50123,
+      },
     })
     .then(() => foso.bundle())
     .then(cb)
@@ -28,4 +29,4 @@ gulp.task('html', ['resources'], function(cb) {
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['html']);
 
-hub(['gulpfile.js', 'assets/gulpfile.js']);
+hub(['assets/gulpfile.js', 'gulpfile.js']);
