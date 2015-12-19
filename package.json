@@ -4,7 +4,10 @@
   "version": "0.0.1",
   "homepage": "http://github.com/fosojs/todomvc",
   "scripts": {
-    "install": "cd assets && npm i"
+    "install": "cd assets && npm i",
+    "site:clean": "rimraf dist",
+    "site:build": "gulp publish",
+    "site:publish": "npm run site:clean && npm run site:build && cd dist && git init && git commit --allow-empty -m \"update foso-todomvc\" && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am \"update foso-todomvc\" && git push git@github.com:fosojs/todomvc gh-pages --force"
   },
   "author": {
     "name": "Zoltan Kochan",
@@ -16,6 +19,7 @@
     "gulp-ejs": "^1.2.2",
     "gulp-hub": "^0.7.1",
     "gulp-util": "^3.0.7",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "rimraf": "^2.4.4"
   }
 }
