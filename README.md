@@ -7,9 +7,9 @@ This does require that nodeJS, gulp, and bower be installed.
 ## Quick start
 
 ```sh
-$ git clone git://github.com/fosojs/todomvc-foso.git
+$ git clone git://github.com/fosojs/todomvc.git
 # install dependent plugins
-$ cd todomvc-foso
+$ cd todomvc
 $ npm install     # Install gulp/foso dev dependencies into /node_modules
 $ bower install   # Install front-end resources from bower into /bower_components
 ```

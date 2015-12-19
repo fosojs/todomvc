@@ -10,7 +10,7 @@ gulp.task('resources', ['templates'], require('./tasks/resources'));
 gulp.task('vendors', function() {
   gulp.src([
     destination + 'assets/**/*',
-    'bower_components/html5shiv/dist/html5shiv.js'
+    'bower_components/html5shiv/dist/html5shiv.js',
   ])
     .pipe(gulp.dest(destination));
 });
