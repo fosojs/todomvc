@@ -3,6 +3,9 @@
   "description": "This is just an example project to show foso with mvc javascript.",
   "version": "0.0.1",
   "homepage": "http://github.com/fosojs/todomvc",
+  "scripts": {
+    "install": "cd assets && npm i"
+  },
   "author": {
     "name": "Zoltan Kochan",
     "email": "zoltan.kochan@gmail.com",

@@ -14,8 +14,6 @@ $ git clone git://github.com/fosojs/todomvc.git
 # install dependent plugins
 $ cd todomvc
 $ npm install # Install gulp dev dependencies into /node_modules
-$ cd assets # Going to the assets project
-$ npm install
 ```
 
 
